@@ -5,7 +5,7 @@
 
 int main (void)
 {
-bool F, P, Q, R;
+bool Y,F, P, Q, R;
 DDRD = 0b00000000; 
 PORTD= 0b00111000;  // digital pins 3,4,5 as input
 DDRB    |= ((1 << DDB5));  // digital pin 13 led as output
@@ -15,7 +15,7 @@ while(1)
    R = (PIND & (1 << PIND5)) == (1 << PIND5);	
    
    F = (P||Q||R)&&(P||!Q||!R)&&(!P||Q||R)&&(!P||Q||!R);
-
+Y=!F;
 	PORTB |= (f << 5);
 	}
         return 0;
