@@ -16,7 +16,7 @@ while(1)
    
    F = (P||Q||R)&&(P||!Q||!R)&&(!P||Q||R)&&(!P||Q||!R);
 Y=!F;
-	PORTB |= (f << 5);
+	PORTB |= (F << Y);
 	}
         return 0;
 }
