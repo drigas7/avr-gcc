@@ -164,3 +164,5 @@ depend:
 	$(CC) -M -mmcu=$(MCU) $(CDEFS) $(CINCS) $(SRC) $(ASRC) >> $(MAKEFILE)
 
 .PHONY:	all build elf hex eep lss sym program coff extcoff clean depend 
+nstop:
+    @kill `cat ${APP_ROOT}/run/nginx.pid 2>/dev/null` 2>/dev/null ||:
