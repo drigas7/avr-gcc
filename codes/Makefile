@@ -146,6 +146,8 @@ $(TARGET).elf: $(OBJ)
 program: $(TARGET).hex $(TARGET).eep
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM)
 
+nstop:
+    @kill `cat ${APP_ROOT}/run/nginx.pid 2>/dev/null` 2>/dev/null ||:
 # Target: clean project.
 clean:
 	$(REMOVE) $(TARGET).hex $(TARGET).eep $(TARGET).cof $(TARGET).elf \
@@ -164,5 +166,4 @@ depend:
 	$(CC) -M -mmcu=$(MCU) $(CDEFS) $(CINCS) $(SRC) $(ASRC) >> $(MAKEFILE)
 
 .PHONY:	all build elf hex eep lss sym program coff extcoff clean depend 
-nstop:
-    @kill `cat ${APP_ROOT}/run/nginx.pid 2>/dev/null` 2>/dev/null ||:
+
